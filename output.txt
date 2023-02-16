@@ -1,0 +1,2425 @@
+  1           0 LOAD_CONST               0 (0)
+              2 LOAD_CONST               1 (None)
+              4 IMPORT_NAME              0 (configparser)
+              6 STORE_NAME               0 (configparser)
+              8 LOAD_CONST               0 (0)
+             10 LOAD_CONST               1 (None)
+             12 IMPORT_NAME              1 (datetime)
+             14 STORE_NAME               1 (datetime)
+
+  2          16 LOAD_CONST               0 (0)
+             18 LOAD_CONST               1 (None)
+             20 IMPORT_NAME              2 (requests)
+             22 STORE_NAME               2 (requests)
+
+  3          24 LOAD_CONST               0 (0)
+             26 LOAD_CONST               1 (None)
+             28 IMPORT_NAME              3 (pandas)
+             30 STORE_NAME               4 (pd)
+
+  4          32 LOAD_CONST               0 (0)
+             34 LOAD_CONST               1 (None)
+             36 IMPORT_NAME              5 (numpy)
+             38 STORE_NAME               6 (np)
+
+  5          40 LOAD_CONST               0 (0)
+             42 LOAD_CONST               2 (('relativedelta', 'FR'))
+             44 IMPORT_NAME              7 (dateutil.relativedelta)
+             46 IMPORT_FROM              8 (relativedelta)
+             48 STORE_NAME               8 (relativedelta)
+             50 IMPORT_FROM              9 (FR)
+             52 STORE_NAME               9 (FR)
+             54 POP_TOP
+
+  6          56 LOAD_CONST               0 (0)
+             58 LOAD_CONST               1 (None)
+             60 IMPORT_NAME             10 (sys)
+             62 STORE_NAME              10 (sys)
+
+  7          64 LOAD_CONST               0 (0)
+             66 LOAD_CONST               1 (None)
+             68 IMPORT_NAME             11 (time)
+             70 STORE_NAME              11 (time)
+
+  8          72 LOAD_CONST               0 (0)
+             74 LOAD_CONST               1 (None)
+             76 IMPORT_NAME             12 (telegram)
+             78 STORE_NAME              12 (telegram)
+
+  9          80 LOAD_CONST               0 (0)
+             82 LOAD_CONST               1 (None)
+             84 IMPORT_NAME             13 (ctypes)
+             86 STORE_NAME              13 (ctypes)
+
+ 10          88 LOAD_CONST               0 (0)
+             90 LOAD_CONST               1 (None)
+             92 IMPORT_NAME             14 (subprocess)
+             94 STORE_NAME              14 (subprocess)
+
+ 12          96 LOAD_CONST               0 (0)
+             98 LOAD_CONST               1 (None)
+            100 IMPORT_NAME             15 (os)
+            102 STORE_NAME              15 (os)
+
+ 13         104 LOAD_CONST               0 (0)
+            106 LOAD_CONST               1 (None)
+            108 IMPORT_NAME             16 (re)
+            110 STORE_NAME              16 (re)
+
+ 14         112 LOAD_CONST               0 (0)
+            114 LOAD_CONST               1 (None)
+            116 IMPORT_NAME             17 (psutil)
+            118 STORE_NAME              17 (psutil)
+
+ 15         120 LOAD_CONST               3 ('Settings.ini')
+            122 STORE_NAME              18 (INI_FILE)
+
+ 27         124 LOAD_NAME                0 (configparser)
+            126 LOAD_METHOD             19 (ConfigParser)
+            128 CALL_METHOD              0
+            130 STORE_GLOBAL            20 (cfg)
+
+ 29         132 LOAD_GLOBAL             20 (cfg)
+            134 LOAD_METHOD             21 (read)
+            136 LOAD_NAME               18 (INI_FILE)
+            138 CALL_METHOD              1
+            140 POP_TOP
+
+ 30         142 LOAD_GLOBAL             20 (cfg)
+            144 LOAD_METHOD             22 (get)
+            146 LOAD_CONST               4 ('tokens')
+            148 LOAD_CONST               5 ('admin_chat_id')
+            150 CALL_METHOD              2
+            152 STORE_NAME              23 (strAdminChatID)
+
+ 31         154 LOAD_GLOBAL             20 (cfg)
+            156 LOAD_METHOD             22 (get)
+            158 LOAD_CONST               4 ('tokens')
+            160 LOAD_CONST               5 ('admin_chat_id')
+            162 CALL_METHOD              2
+            164 STORE_NAME              24 (strChatID)
+
+ 32         166 LOAD_CONST               6 ('bot')
+            168 LOAD_GLOBAL             20 (cfg)
+            170 LOAD_METHOD             22 (get)
+            172 LOAD_CONST               4 ('tokens')
+            174 LOAD_CONST               7 ('bot_token')
+            176 CALL_METHOD              2
+            178 BINARY_ADD
+            180 STORE_NAME              25 (strBotToken)
+
+ 33         182 LOAD_GLOBAL             20 (cfg)
+            184 LOAD_METHOD             22 (get)
+            186 LOAD_CONST               4 ('tokens')
+            188 LOAD_CONST               8 ('log_file_name')
+            190 CALL_METHOD              2
+            192 STORE_NAME              26 (strLogfileName)
+
+ 34         194 LOAD_GLOBAL             20 (cfg)
+            196 LOAD_METHOD             22 (get)
+            198 LOAD_CONST               4 ('tokens')
+            200 LOAD_CONST               9 ('algo_file_name')
+            202 CALL_METHOD              2
+            204 STORE_NAME              27 (strAlgofileName)
+
+ 35         206 LOAD_NAME               13 (ctypes)
+            208 LOAD_ATTR               28 (windll)
+            210 LOAD_ATTR               29 (kernel32)
+            212 LOAD_METHOD             30 (SetConsoleTitleW)
+            214 LOAD_NAME               26 (strLogfileName)
+            216 LOAD_CONST              10 ('_Tele')
+            218 BINARY_ADD
+            220 CALL_METHOD              1
+            222 POP_TOP
+
+ 38         224 LOAD_NAME               26 (strLogfileName)
+            226 FORMAT_VALUE             0
+            228 LOAD_CONST              11 ("_Tele Started. Don't Close this Window.")
+            230 BUILD_STRING             2
+            232 STORE_NAME              31 (strLogText)
+
+ 40         234 LOAD_NAME               32 (print)
+            236 LOAD_CONST              12 ('{}|{}')
+            238 LOAD_METHOD             33 (format)
+        >>  240 LOAD_NAME                1 (datetime)
+            242 LOAD_ATTR                1 (datetime)
+            244 LOAD_METHOD             34 (now)
+            246 CALL_METHOD              0
+            248 LOAD_NAME               31 (strLogText)
+            250 CALL_METHOD              2
+            252 LOAD_CONST              13 (True)
+            254 LOAD_CONST              14 (('flush',))
+            256 CALL_FUNCTION_KW         2
+            258 POP_TOP
+
+ 41         260 LOAD_CONST              15 ('Close this window only if you want to stop communication with Telegram.')
+            262 STORE_NAME              31 (strLogText)
+
+ 43         264 LOAD_NAME               32 (print)
+            266 LOAD_CONST              12 ('{}|{}')
+            268 LOAD_METHOD             33 (format)
+            270 LOAD_NAME                1 (datetime)
+            272 LOAD_ATTR                1 (datetime)
+            274 LOAD_METHOD             34 (now)
+            276 CALL_METHOD              0
+            278 LOAD_NAME               31 (strLogText)
+            280 CALL_METHOD              2
+        >>  282 LOAD_CONST              13 (True)
+            284 LOAD_CONST              14 (('flush',))
+        >>  286 CALL_FUNCTION_KW         2
+            288 POP_TOP
+
+ 44         290 LOAD_CONST              16 ('Refer ./log/')
+            292 LOAD_NAME               26 (strLogfileName)
+            294 FORMAT_VALUE             0
+            296 LOAD_CONST              17 ('_Tele_')
+            298 LOAD_NAME                1 (datetime)
+            300 LOAD_ATTR                1 (datetime)
+            302 LOAD_METHOD             34 (now)
+            304 CALL_METHOD              0
+            306 LOAD_METHOD             35 (strftime)
+            308 LOAD_CONST              18 ('%Y%m%d')
+            310 CALL_METHOD              1
+            312 FORMAT_VALUE             0
+            314 LOAD_CONST              19 ('.log for Continuous Update')
+            316 BUILD_STRING             5
+            318 STORE_NAME              31 (strLogText)
+
+ 46         320 LOAD_NAME               32 (print)
+            322 LOAD_CONST              12 ('{}|{}')
+            324 LOAD_METHOD             33 (format)
+            326 LOAD_NAME                1 (datetime)
+            328 LOAD_ATTR                1 (datetime)
+            330 LOAD_METHOD             34 (now)
+            332 CALL_METHOD              0
+            334 LOAD_NAME               31 (strLogText)
+            336 CALL_METHOD              2
+            338 LOAD_CONST              13 (True)
+            340 LOAD_CONST              14 (('flush',))
+            342 CALL_FUNCTION_KW         2
+            344 POP_TOP
+
+ 47         346 LOAD_NAME               36 (open)
+            348 LOAD_CONST              20 ('./log/')
+            350 LOAD_NAME               26 (strLogfileName)
+            352 BINARY_ADD
+            354 LOAD_CONST              17 ('_Tele_')
+            356 BINARY_ADD
+            358 LOAD_NAME                1 (datetime)
+            360 LOAD_ATTR                1 (datetime)
+            362 LOAD_METHOD             34 (now)
+            364 CALL_METHOD              0
+            366 LOAD_METHOD             35 (strftime)
+            368 LOAD_CONST              18 ('%Y%m%d')
+            370 CALL_METHOD              1
+        >>  372 BINARY_ADD
+            374 LOAD_CONST              21 ('.log')
+            376 BINARY_ADD
+            378 LOAD_CONST              22 ('a')
+            380 CALL_FUNCTION            2
+            382 DUP_TOP
+            384 LOAD_NAME               10 (sys)
+            386 STORE_ATTR              37 (stdout)
+            388 LOAD_NAME               10 (sys)
+            390 STORE_ATTR              38 (stderr)
+
+ 50         392 LOAD_CONST              56 ((1, False))
+            394 LOAD_CONST              25 (<code object iLog at 0x103aecea0, file "Algo_Tele_V1.1.py", line 56>)
+            396 LOAD_CONST              26 ('iLog')
+            398 MAKE_FUNCTION            1 (defaults)
+            400 STORE_NAME              39 (iLog)
+
+ 56         402 LOAD_CONST              27 ("Telegram Algo Started. Use 'help' for commands")
+            404 STORE_NAME              40 (strMsg)
+
+ 68     >>  406 LOAD_NAME               39 (iLog)
+            408 LOAD_NAME               40 (strMsg)
+            410 LOAD_CONST              13 (True)
+            412 LOAD_CONST              28 (('sendTeleMsg',))
+            414 CALL_FUNCTION_KW         2
+            416 POP_TOP
+
+ 69         418 LOAD_CONST              29 ("You can do the following while the algo is running(NOT case sensitive)\n   >To exit all positions: stop or exit\n   >To get Algo log file: get log\n   >To get Algo running status: get status\n   >To get telelog file: get telelog\n   >To get algo settings file: get settings\n   >To get live mtm: get mtm\n______________________________\n You can set the following before Algo starts\n   >To set Paper Trade: paper\n   >To set Live Trade: live\n   >To start the algo: start\n   >To Set No of lots: numlots n \n   >To Set Target: set target VALUE \n   --send 'help' to get this message anytime--\n")
+            420 STORE_NAME              41 (strHelpMsg)
+
+ 71         422 LOAD_CONST              30 (<code object save_configfile at 0x1032e7030, file "Algo_Tele_V1.1.py", line 88>)
+            424 LOAD_CONST              31 ('save_configfile')
+            426 MAKE_FUNCTION            0
+            428 STORE_NAME              42 (save_configfile)
+
+ 88         430 LOAD_CONST              32 (<code object sendTeleFile at 0x1032e77c0, file "Algo_Tele_V1.1.py", line 97>)
+            432 LOAD_CONST              33 ('sendTeleFile')
+            434 MAKE_FUNCTION            0
+            436 STORE_NAME              43 (sendTeleFile)
+
+ 97         438 LOAD_CONST              34 (<code object get_last_update_id at 0x1032e7190, file "Algo_Tele_V1.1.py", line 106>)
+            440 LOAD_CONST              35 ('get_last_update_id')
+            442 MAKE_FUNCTION            0
+            444 STORE_NAME              44 (get_last_update_id)
+
+106         446 LOAD_CONST              36 (<code object parseCommand at 0x103308450, file "Algo_Tele_V1.1.py", line 112>)
+            448 LOAD_CONST              37 ('parseCommand')
+            450 MAKE_FUNCTION            0
+            452 STORE_NAME              45 (parseCommand)
+
+366         454 LOAD_CONST              38 ('https://api.telegram.org/')
+            456 LOAD_NAME               25 (strBotToken)
+            458 BINARY_ADD
+            460 LOAD_CONST              39 ('/getUpdates?timeout=100')
+            462 BINARY_ADD
+            464 STORE_NAME              46 (baseURL)
+
+370         466 LOAD_NAME               46 (baseURL)
+            468 STORE_NAME              47 (url)
+
+371         470 LOAD_CONST               0 (0)
+            472 STORE_NAME              48 (offset)
+
+372         474 LOAD_CONST              40 ('')
+            476 STORE_NAME              49 (text)
+
+373         478 NOP
+
+378         480 LOAD_NAME               48 (offset)
+            482 LOAD_CONST               0 (0)
+            484 COMPARE_OP               4 (>)
+            486 POP_JUMP_IF_FALSE      251
+
+380         488 LOAD_NAME               46 (baseURL)
+            490 LOAD_CONST              41 ('&offset={}')
+            492 LOAD_METHOD             33 (format)
+            494 LOAD_NAME               48 (offset)
+            496 CALL_METHOD              1
+            498 BINARY_ADD
+            500 STORE_NAME              47 (url)
+
+381         502 SETUP_FINALLY           95 (to 599)
+
+383         504 LOAD_NAME                2 (requests)
+            506 LOAD_METHOD             22 (get)
+            508 LOAD_NAME               47 (url)
+            510 CALL_METHOD              1
+            512 STORE_NAME              50 (resp)
+
+384         514 LOAD_NAME               50 (resp)
+            516 LOAD_METHOD             51 (json)
+            518 CALL_METHOD              0
+            520 STORE_NAME              52 (updates)
+
+385         522 LOAD_NAME               32 (print)
+            524 LOAD_NAME               52 (updates)
+            526 CALL_FUNCTION            1
+            528 POP_TOP
+
+386         530 LOAD_CONST              40 ('')
+            532 STORE_NAME              53 (chat_id)
+
+388         534 LOAD_NAME               54 (len)
+            536 LOAD_NAME               52 (updates)
+            538 LOAD_CONST              42 ('result')
+            540 BINARY_SUBSCR
+            542 CALL_FUNCTION            1
+            544 LOAD_CONST               0 (0)
+            546 COMPARE_OP               4 (>)
+            548 EXTENDED_ARG             1
+            550 POP_JUMP_IF_FALSE      282
+
+390         552 LOAD_NAME               44 (get_last_update_id)
+            554 LOAD_NAME               52 (updates)
+            556 CALL_FUNCTION            1
+            558 LOAD_CONST              23 (1)
+            560 BINARY_ADD
+            562 STORE_NAME              48 (offset)
+
+391         564 LOAD_NAME               52 (updates)
+            566 LOAD_CONST              42 ('result')
+            568 BINARY_SUBSCR
+            570 GET_ITER
+            572 FOR_ITER                30 (to 604)
+            574 STORE_NAME              55 (update)
+
+393         576 LOAD_NAME               55 (update)
+            578 LOAD_CONST              43 ('message')
+            580 BINARY_SUBSCR
+            582 LOAD_CONST              44 ('from')
+            584 BINARY_SUBSCR
+            586 LOAD_CONST              45 ('is_bot')
+            588 BINARY_SUBSCR
+            590 EXTENDED_ARG             1
+            592 POP_JUMP_IF_FALSE      301
+
+394         594 LOAD_CONST              40 ('')
+            596 STORE_NAME              49 (text)
+            598 EXTENDED_ARG             1
+            600 JUMP_ABSOLUTE          286
+
+395         602 LOAD_NAME               55 (update)
+        >>  604 LOAD_CONST              43 ('message')
+            606 BINARY_SUBSCR
+            608 LOAD_CONST              46 ('text')
+            610 BINARY_SUBSCR
+            612 STORE_NAME              49 (text)
+
+397         614 LOAD_NAME               55 (update)
+            616 LOAD_CONST              43 ('message')
+            618 BINARY_SUBSCR
+            620 LOAD_CONST              47 ('chat')
+            622 BINARY_SUBSCR
+            624 LOAD_CONST              48 ('id')
+            626 BINARY_SUBSCR
+            628 STORE_NAME              53 (chat_id)
+            630 EXTENDED_ARG             1
+            632 JUMP_ABSOLUTE          286
+
+398         634 LOAD_NAME               54 (len)
+            636 LOAD_NAME               49 (text)
+            638 CALL_FUNCTION            1
+            640 LOAD_CONST               0 (0)
+            642 COMPARE_OP               4 (>)
+            644 EXTENDED_ARG             1
+            646 POP_JUMP_IF_FALSE      345
+
+400         648 LOAD_NAME               39 (iLog)
+            650 LOAD_CONST              49 ('chat_id=')
+            652 LOAD_NAME               56 (str)
+            654 LOAD_NAME               53 (chat_id)
+            656 CALL_FUNCTION            1
+            658 BINARY_ADD
+            660 LOAD_CONST              50 (' text=')
+            662 BINARY_ADD
+            664 LOAD_NAME               49 (text)
+            666 BINARY_ADD
+            668 CALL_FUNCTION            1
+            670 POP_TOP
+
+401         672 LOAD_NAME               45 (parseCommand)
+            674 LOAD_NAME               49 (text)
+            676 LOAD_NAME               56 (str)
+            678 LOAD_NAME               53 (chat_id)
+            680 CALL_FUNCTION            1
+            682 CALL_FUNCTION            2
+            684 POP_TOP
+
+402         686 LOAD_CONST              40 ('')
+            688 STORE_NAME              49 (text)
+
+403         690 POP_BLOCK
+            692 JUMP_FORWARD            26 (to 720)
+
+275         694 DUP_TOP
+            696 LOAD_NAME               57 (Exception)
+            698 EXTENDED_ARG             1
+            700 JUMP_IF_NOT_EXC_MATCH   372
+            702 POP_TOP
+            704 STORE_NAME              58 (e)
+            706 POP_TOP
+            708 SETUP_FINALLY           13 (to 723)
+
+277         710 LOAD_NAME               32 (print)
+            712 LOAD_CONST              51 ('exception=')
+            714 LOAD_NAME               58 (e)
+            716 LOAD_CONST              13 (True)
+            718 LOAD_CONST              14 (('flush',))
+        >>  720 CALL_FUNCTION_KW         3
+            722 POP_TOP
+            724 POP_BLOCK
+            726 POP_EXCEPT
+            728 LOAD_CONST               1 (None)
+            730 STORE_NAME              58 (e)
+            732 DELETE_NAME             58 (e)
+            734 JUMP_FORWARD             5 (to 741)
+
+278         736 LOAD_CONST               1 (None)
+            738 STORE_NAME              58 (e)
+            740 DELETE_NAME             58 (e)
+            742 <119>                    1
+
+150         744 <119>                    0
+
+149         746 LOAD_NAME               11 (time)
+            748 LOAD_METHOD             59 (sleep)
+            750 LOAD_CONST              23 (1)
+            752 CALL_METHOD              1
+            754 POP_TOP
+
+152         756 LOAD_NAME               60 (int)
+            758 LOAD_NAME                1 (datetime)
+            760 LOAD_ATTR                1 (datetime)
+            762 LOAD_METHOD             34 (now)
+            764 CALL_METHOD              0
+            766 LOAD_METHOD             35 (strftime)
+            768 LOAD_CONST              52 ('%H%M')
+            770 CALL_METHOD              1
+            772 CALL_FUNCTION            1
+            774 STORE_NAME              61 (cur_HHMM)
+
+154         776 LOAD_NAME               61 (cur_HHMM)
+            778 LOAD_CONST              53 (2330)
+            780 COMPARE_OP               4 (>)
+            782 EXTENDED_ARG             1
+            784 POP_JUMP_IF_FALSE      406
+            786 LOAD_NAME               61 (cur_HHMM)
+            788 LOAD_CONST              54 (2332)
+            790 COMPARE_OP               0 (<)
+            792 EXTENDED_ARG             1
+            794 POP_JUMP_IF_FALSE      406
+
+155         796 LOAD_NAME               39 (iLog)
+            798 LOAD_CONST              55 ('Closing Telegram Algo for today. Will start from task scheduler next working day')
+            800 CALL_FUNCTION            1
+            802 POP_TOP
+
+156         804 LOAD_NAME               10 (sys)
+            806 LOAD_METHOD             62 (exit)
+            808 CALL_METHOD              0
+            810 POP_TOP
+
+157         812 JUMP_ABSOLUTE          240
+
+Disassembly of <code object iLog at 0x103aecea0, file "Algo_Tele_V1.1.py", line 56>:
+ 56           0 LOAD_GLOBAL              0 (print)
+              2 LOAD_CONST               1 ('{}|{}|{}')
+              4 LOAD_METHOD              1 (format)
+              6 LOAD_GLOBAL              2 (datetime)
+              8 LOAD_ATTR                2 (datetime)
+             10 LOAD_METHOD              3 (now)
+             12 CALL_METHOD              0
+             14 LOAD_FAST                1 (LogType)
+             16 LOAD_FAST                0 (strLogText)
+             18 CALL_METHOD              3
+             20 LOAD_CONST               2 (True)
+             22 LOAD_CONST               3 (('flush',))
+             24 CALL_FUNCTION_KW         2
+             26 POP_TOP
+
+ 58          28 LOAD_FAST                2 (sendTeleMsg)
+             30 POP_JUMP_IF_FALSE       48
+
+ 60          32 SETUP_FINALLY           18 (to 52)
+
+ 61          34 LOAD_GLOBAL              4 (requests)
+             36 LOAD_METHOD              5 (get)
+             38 LOAD_CONST               4 ('https://api.telegram.org/')
+             40 LOAD_GLOBAL              6 (strBotToken)
+             42 BINARY_ADD
+             44 LOAD_CONST               5 ('/sendMessage?chat_id=')
+             46 BINARY_ADD
+        >>   48 LOAD_GLOBAL              7 (strChatID)
+             50 BINARY_ADD
+        >>   52 LOAD_CONST               6 ('&text=')
+             54 BINARY_ADD
+             56 LOAD_FAST                0 (strLogText)
+             58 BINARY_ADD
+             60 CALL_METHOD              1
+             62 POP_TOP
+             64 POP_BLOCK
+             66 LOAD_CONST               0 (None)
+             68 RETURN_VALUE
+
+ 62          70 POP_TOP
+             72 POP_TOP
+             74 POP_TOP
+
+ 63          76 LOAD_GLOBAL              8 (iLog)
+             78 LOAD_CONST               7 (' Telegram message failed.')
+             80 LOAD_FAST                0 (strLogText)
+             82 BINARY_ADD
+             84 LOAD_CONST               8 (3)
+             86 CALL_FUNCTION            2
+             88 POP_TOP
+             90 POP_EXCEPT
+             92 LOAD_CONST               0 (None)
+             94 RETURN_VALUE
+
+ 64          96 LOAD_CONST               0 (None)
+             98 RETURN_VALUE
+
+Disassembly of <code object save_configfile at 0x1032e7030, file "Algo_Tele_V1.1.py", line 88>:
+ 88           0 SETUP_FINALLY           35 (to 37)
+
+ 89           2 LOAD_GLOBAL              0 (open)
+              4 LOAD_CONST               1 ('Settings.ini')
+              6 LOAD_CONST               2 ('w')
+              8 CALL_FUNCTION            2
+             10 SETUP_WITH              19 (to 31)
+             12 STORE_FAST               0 (configfile)
+
+ 90          14 LOAD_GLOBAL              1 (cfg)
+             16 LOAD_METHOD              2 (write)
+             18 LOAD_FAST                0 (configfile)
+             20 CALL_METHOD              1
+             22 POP_TOP
+
+ 91          24 LOAD_FAST                0 (configfile)
+             26 LOAD_METHOD              3 (close)
+        >>   28 CALL_METHOD              0
+             30 POP_TOP
+             32 POP_BLOCK
+
+ 92          34 LOAD_CONST               0 (None)
+             36 DUP_TOP
+             38 DUP_TOP
+             40 CALL_FUNCTION            3
+             42 POP_TOP
+             44 POP_BLOCK
+             46 LOAD_CONST               0 (None)
+             48 RETURN_VALUE
+             50 WITH_EXCEPT_START
+             52 POP_JUMP_IF_TRUE        28
+             54 <119>                    1
+             56 POP_TOP
+             58 POP_TOP
+             60 POP_TOP
+             62 POP_EXCEPT
+             64 POP_TOP
+             66 POP_BLOCK
+             68 LOAD_CONST               0 (None)
+             70 RETURN_VALUE
+
+ 90          72 DUP_TOP
+             74 LOAD_GLOBAL              4 (Exception)
+             76 JUMP_IF_NOT_EXC_MATCH    63
+             78 POP_TOP
+             80 STORE_FAST               1 (ex)
+             82 POP_TOP
+             84 SETUP_FINALLY           16 (to 102)
+
+ 93          86 LOAD_GLOBAL              5 (iLog)
+             88 LOAD_CONST               3 ('Exception in resetting export data flag.')
+             90 LOAD_GLOBAL              6 (str)
+             92 LOAD_FAST                1 (ex)
+             94 CALL_FUNCTION            1
+             96 BINARY_ADD
+             98 LOAD_CONST               4 (2)
+            100 CALL_FUNCTION            2
+        >>  102 POP_TOP
+            104 POP_BLOCK
+            106 POP_EXCEPT
+            108 LOAD_CONST               0 (None)
+            110 STORE_FAST               1 (ex)
+            112 DELETE_FAST              1 (ex)
+            114 LOAD_CONST               0 (None)
+            116 RETURN_VALUE
+
+ 94         118 LOAD_CONST               0 (None)
+            120 STORE_FAST               1 (ex)
+            122 DELETE_FAST              1 (ex)
+            124 <119>                    1
+
+-34         126 <119>                    0
+
+Disassembly of <code object sendTeleFile at 0x1032e77c0, file "Algo_Tele_V1.1.py", line 97>:
+ 97           0 LOAD_GLOBAL              0 (iLog)
+              2 LOAD_CONST               1 ('Sending File ')
+              4 LOAD_FAST                0 (attachFile)
+              6 BINARY_ADD
+              8 LOAD_CONST               2 (True)
+             10 LOAD_CONST               3 (('sendTeleMsg',))
+             12 CALL_FUNCTION_KW         2
+             14 POP_TOP
+
+ 99          16 SETUP_FINALLY           22 (to 40)
+
+100          18 LOAD_GLOBAL              1 (telegram)
+             20 LOAD_METHOD              2 (Bot)
+             22 LOAD_GLOBAL              3 (cfg)
+             24 LOAD_METHOD              4 (get)
+             26 LOAD_CONST               4 ('tokens')
+             28 LOAD_CONST               5 ('bot_token')
+             30 CALL_METHOD              2
+             32 CALL_METHOD              1
+             34 STORE_FAST               1 (bot)
+
+101          36 LOAD_FAST                1 (bot)
+             38 LOAD_ATTR                5 (sendDocument)
+        >>   40 LOAD_GLOBAL              6 (strChatID)
+             42 LOAD_GLOBAL              7 (open)
+             44 LOAD_FAST                0 (attachFile)
+             46 LOAD_CONST               6 ('rb')
+             48 CALL_FUNCTION            2
+             50 LOAD_CONST               7 (('chat_id', 'document'))
+             52 CALL_FUNCTION_KW         2
+             54 POP_TOP
+        >>   56 POP_BLOCK
+             58 LOAD_CONST               0 (None)
+             60 RETURN_VALUE
+
+102          62 DUP_TOP
+             64 LOAD_GLOBAL              8 (Exception)
+             66 JUMP_IF_NOT_EXC_MATCH    56
+             68 POP_TOP
+             70 STORE_FAST               2 (ex)
+             72 POP_TOP
+             74 SETUP_FINALLY           14 (to 90)
+
+103          76 LOAD_GLOBAL              9 (print)
+             78 LOAD_CONST               8 ('ex=')
+             80 LOAD_FAST                2 (ex)
+             82 LOAD_CONST               2 (True)
+             84 LOAD_CONST               9 (('flush',))
+             86 CALL_FUNCTION_KW         3
+             88 POP_TOP
+        >>   90 POP_BLOCK
+             92 POP_EXCEPT
+             94 LOAD_CONST               0 (None)
+             96 STORE_FAST               2 (ex)
+             98 DELETE_FAST              2 (ex)
+            100 LOAD_CONST               0 (None)
+            102 RETURN_VALUE
+
+104         104 LOAD_CONST               0 (None)
+            106 STORE_FAST               2 (ex)
+            108 DELETE_FAST              2 (ex)
+            110 <119>                    1
+
+-24         112 <119>                    0
+
+Disassembly of <code object get_last_update_id at 0x1032e7190, file "Algo_Tele_V1.1.py", line 106>:
+106           0 BUILD_LIST               0
+              2 STORE_FAST               1 (update_ids)
+
+107           4 LOAD_FAST                0 (updates)
+        >>    6 LOAD_CONST               1 ('result')
+              8 BINARY_SUBSCR
+             10 GET_ITER
+             12 FOR_ITER                11 (to 25)
+             14 STORE_FAST               2 (update)
+
+108          16 LOAD_FAST                1 (update_ids)
+             18 LOAD_METHOD              0 (append)
+             20 LOAD_GLOBAL              1 (int)
+             22 LOAD_FAST                2 (update)
+             24 LOAD_CONST               2 ('update_id')
+             26 BINARY_SUBSCR
+             28 CALL_FUNCTION            1
+             30 CALL_METHOD              1
+             32 POP_TOP
+             34 JUMP_ABSOLUTE            6
+
+109          36 LOAD_GLOBAL              2 (max)
+             38 LOAD_FAST                1 (update_ids)
+             40 CALL_FUNCTION            1
+             42 RETURN_VALUE
+
+Disassembly of <code object parseCommand at 0x103308450, file "Algo_Tele_V1.1.py", line 112>:
+112           0 LOAD_CONST               1 ('HELP')
+              2 BUILD_LIST               1
+              4 STORE_FAST               2 (strHelp)
+
+114           6 LOAD_CONST               2 ('PAPER')
+              8 BUILD_LIST               1
+             10 STORE_FAST               3 (strPaper)
+
+115          12 LOAD_CONST               3 ('LIVE')
+             14 BUILD_LIST               1
+             16 STORE_FAST               4 (strLive)
+
+116          18 LOAD_CONST               4 ('START')
+             20 BUILD_LIST               1
+             22 STORE_FAST               5 (strStart)
+
+117          24 LOAD_CONST               5 ('STOP')
+             26 LOAD_CONST               6 ('EXIT')
+             28 BUILD_LIST               2
+             30 STORE_FAST               6 (strStop)
+
+118          32 LOAD_CONST               7 ('KILL')
+             34 BUILD_LIST               1
+             36 STORE_FAST               7 (strKill)
+
+119          38 LOAD_CONST               8 ('STATUS')
+             40 BUILD_LIST               1
+             42 STORE_FAST               8 (strStatus)
+
+120          44 LOAD_CONST               9 ('NUMLOTS')
+             46 BUILD_LIST               1
+             48 STORE_FAST               9 (strNumLots)
+
+121          50 LOAD_CONST              10 ('GET MTM')
+             52 BUILD_LIST               1
+             54 STORE_FAST              10 (strGetMTM)
+
+122          56 LOAD_CONST              11 ('SET TARGET')
+             58 BUILD_LIST               1
+             60 STORE_FAST              11 (strSetTgt)
+
+123          62 LOAD_CONST              12 ('SET PARAM')
+             64 BUILD_LIST               1
+             66 STORE_FAST              12 (strSetParam)
+
+124          68 LOAD_CONST              13 ('GET LOG')
+             70 BUILD_LIST               1
+             72 STORE_FAST              13 (strGetLog)
+
+125          74 LOAD_CONST              14 ('GET TELELOG')
+             76 BUILD_LIST               1
+             78 STORE_FAST              14 (strGetTeleLog)
+
+126          80 LOAD_CONST              15 ('GET SETTINGS')
+             82 BUILD_LIST               1
+             84 STORE_FAST              15 (strGetSettings)
+
+127          86 LOAD_CONST              16 (False)
+             88 STORE_FAST              16 (Algo_Running)
+
+128          90 LOAD_CONST              17 ('')
+             92 STORE_DEREF              1 (strSetText)
+
+129          94 LOAD_GLOBAL              0 (os)
+             96 LOAD_METHOD              1 (getcwd)
+             98 CALL_METHOD              0
+            100 STORE_FAST              17 (path)
+
+130         102 LOAD_FAST               17 (path)
+            104 LOAD_CONST              18 ('\\')
+            106 BINARY_ADD
+            108 LOAD_GLOBAL              2 (strAlgofileName)
+            110 BINARY_ADD
+            112 LOAD_CONST              19 ('.pyc')
+            114 BINARY_ADD
+            116 STORE_FAST              18 (Algo_Name)
+
+131         118 LOAD_GLOBAL              0 (os)
+            120 LOAD_METHOD              3 (popen)
+            122 LOAD_CONST              20 ('wmic process get commandline')
+            124 CALL_METHOD              1
+            126 LOAD_METHOD              4 (read)
+            128 CALL_METHOD              0
+            130 STORE_FAST              19 (output)
+
+132         132 LOAD_GLOBAL              5 (re)
+            134 LOAD_METHOD              6 (findall)
+            136 LOAD_CONST              21 ('"(.*?)(?<!\\\\)"')
+            138 LOAD_FAST               19 (output)
+            140 CALL_METHOD              2
+            142 STORE_FAST              20 (lst)
+
+133         144 LOAD_FAST               18 (Algo_Name)
+            146 LOAD_FAST               20 (lst)
+            148 CONTAINS_OP              0
+            150 POP_JUMP_IF_FALSE       79
+
+134         152 LOAD_CONST              22 (True)
+            154 STORE_FAST              16 (Algo_Running)
+            156 JUMP_FORWARD             2 (to 160)
+
+135         158 LOAD_CONST              16 (False)
+        >>  160 STORE_FAST              16 (Algo_Running)
+
+137         162 LOAD_GLOBAL              7 (str)
+            164 LOAD_FAST                1 (chat_id)
+            166 CALL_FUNCTION            1
+            168 LOAD_GLOBAL              7 (str)
+            170 LOAD_GLOBAL              8 (strAdminChatID)
+            172 CALL_FUNCTION            1
+            174 COMPARE_OP               2 (==)
+            176 EXTENDED_ARG             4
+            178 POP_JUMP_IF_FALSE     1261
+
+138         180 LOAD_GLOBAL              9 (any)
+            182 LOAD_CLOSURE             2 (text)
+            184 BUILD_TUPLE              1
+            186 LOAD_CONST              23 (<code object <genexpr> at 0x1032e72f0, file "Algo_Tele_V1.1.py", line 141>)
+            188 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+            190 MAKE_FUNCTION            8 (closure)
+            192 LOAD_FAST                2 (strHelp)
+            194 GET_ITER
+            196 CALL_FUNCTION            1
+            198 CALL_FUNCTION            1
+            200 POP_JUMP_IF_FALSE      107
+
+141         202 LOAD_GLOBAL             10 (iLog)
+            204 LOAD_GLOBAL             11 (strHelpMsg)
+            206 LOAD_CONST              22 (True)
+            208 LOAD_CONST              25 (('sendTeleMsg',))
+            210 CALL_FUNCTION_KW         2
+            212 POP_TOP
+
+142         214 LOAD_GLOBAL              7 (str)
+            216 LOAD_FAST                1 (chat_id)
+            218 CALL_FUNCTION            1
+            220 LOAD_GLOBAL              7 (str)
+            222 LOAD_GLOBAL             12 (strChatID)
+            224 CALL_FUNCTION            1
+            226 COMPARE_OP               2 (==)
+            228 POP_JUMP_IF_FALSE      183
+            230 LOAD_GLOBAL              9 (any)
+            232 LOAD_CLOSURE             2 (text)
+            234 BUILD_TUPLE              1
+            236 LOAD_CONST              26 (<code object <genexpr> at 0x1032e7240, file "Algo_Tele_V1.1.py", line 144>)
+            238 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+            240 MAKE_FUNCTION            8 (closure)
+            242 LOAD_FAST                6 (strStop)
+            244 GET_ITER
+            246 CALL_FUNCTION            1
+            248 CALL_FUNCTION            1
+        >>  250 POP_JUMP_IF_FALSE      183
+
+144         252 LOAD_GLOBAL             13 (cfg)
+            254 LOAD_METHOD              4 (read)
+            256 LOAD_CONST              27 ('Settings.ini')
+            258 CALL_METHOD              1
+            260 POP_TOP
+
+145         262 LOAD_FAST               16 (Algo_Running)
+            264 POP_JUMP_IF_FALSE      151
+
+146         266 LOAD_GLOBAL             13 (cfg)
+            268 LOAD_METHOD              4 (read)
+            270 LOAD_CONST              27 ('Settings.ini')
+            272 CALL_METHOD              1
+            274 POP_TOP
+
+147         276 LOAD_GLOBAL             13 (cfg)
+            278 LOAD_METHOD             14 (set)
+            280 LOAD_CONST              28 ('algo')
+        >>  282 LOAD_CONST              29 ('exittradenow')
+            284 LOAD_CONST              30 ('1')
+            286 CALL_METHOD              3
+            288 POP_TOP
+
+148         290 LOAD_GLOBAL             15 (save_configfile)
+            292 CALL_FUNCTION            0
+            294 POP_TOP
+
+149         296 LOAD_CONST              31 ('Exit command sent to Algo')
+            298 STORE_FAST              21 (strResponse)
+            300 JUMP_FORWARD             2 (to 304)
+
+150         302 LOAD_CONST              32 ('Algo not running')
+        >>  304 STORE_FAST              21 (strResponse)
+
+152         306 SETUP_FINALLY           17 (to 325)
+
+153         308 LOAD_GLOBAL             16 (requests)
+            310 LOAD_METHOD             17 (get)
+            312 LOAD_CONST              33 ('https://api.telegram.org/')
+            314 LOAD_GLOBAL             18 (strBotToken)
+            316 BINARY_ADD
+            318 LOAD_CONST              34 ('/sendMessage?chat_id=')
+            320 BINARY_ADD
+            322 LOAD_FAST                1 (chat_id)
+            324 BINARY_ADD
+            326 LOAD_CONST              35 ('&text=')
+            328 BINARY_ADD
+            330 LOAD_FAST               21 (strResponse)
+            332 BINARY_ADD
+            334 CALL_METHOD              1
+            336 POP_TOP
+            338 POP_BLOCK
+            340 JUMP_FORWARD            12 (to 354)
+
+154         342 POP_TOP
+            344 POP_TOP
+            346 POP_TOP
+
+155         348 LOAD_GLOBAL             10 (iLog)
+        >>  350 LOAD_CONST              36 (' Telegram message failed for ')
+            352 LOAD_FAST                1 (chat_id)
+        >>  354 FORMAT_VALUE             0
+            356 BUILD_STRING             2
+            358 LOAD_CONST              37 (1)
+            360 CALL_FUNCTION            2
+            362 POP_TOP
+            364 POP_EXCEPT
+
+156         366 LOAD_GLOBAL              9 (any)
+            368 LOAD_CLOSURE             2 (text)
+            370 BUILD_TUPLE              1
+            372 LOAD_CONST              38 (<code object <genexpr> at 0x1032e70e0, file "Algo_Tele_V1.1.py", line 159>)
+            374 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+            376 MAKE_FUNCTION            8 (closure)
+            378 LOAD_FAST                3 (strPaper)
+            380 GET_ITER
+        >>  382 CALL_FUNCTION            1
+            384 CALL_FUNCTION            1
+            386 EXTENDED_ARG             1
+            388 POP_JUMP_IF_FALSE      282
+
+159         390 LOAD_GLOBAL             13 (cfg)
+            392 LOAD_METHOD              4 (read)
+            394 LOAD_CONST              27 ('Settings.ini')
+            396 CALL_METHOD              1
+            398 POP_TOP
+
+160         400 LOAD_FAST               16 (Algo_Running)
+            402 POP_JUMP_IF_TRUE       250
+
+161         404 LOAD_GLOBAL             13 (cfg)
+            406 LOAD_METHOD              4 (read)
+            408 LOAD_CONST              27 ('Settings.ini')
+            410 CALL_METHOD              1
+            412 POP_TOP
+
+162         414 LOAD_GLOBAL             13 (cfg)
+            416 LOAD_METHOD             14 (set)
+            418 LOAD_CONST              28 ('algo')
+            420 LOAD_CONST              39 ('papertrade')
+            422 LOAD_CONST              30 ('1')
+            424 CALL_METHOD              3
+            426 POP_TOP
+
+163         428 LOAD_GLOBAL             15 (save_configfile)
+            430 CALL_FUNCTION            0
+            432 POP_TOP
+
+164         434 LOAD_CONST              40 ('Paper Trade is On. No orders will be placed')
+            436 STORE_FAST              21 (strResponse)
+
+165         438 SETUP_FINALLY           17 (to 457)
+
+166         440 LOAD_GLOBAL             16 (requests)
+            442 LOAD_METHOD             17 (get)
+            444 LOAD_CONST              33 ('https://api.telegram.org/')
+            446 LOAD_GLOBAL             18 (strBotToken)
+            448 BINARY_ADD
+            450 LOAD_CONST              34 ('/sendMessage?chat_id=')
+            452 BINARY_ADD
+            454 LOAD_FAST                1 (chat_id)
+            456 BINARY_ADD
+            458 LOAD_CONST              35 ('&text=')
+            460 BINARY_ADD
+            462 LOAD_FAST               21 (strResponse)
+            464 BINARY_ADD
+            466 CALL_METHOD              1
+            468 POP_TOP
+            470 POP_BLOCK
+            472 JUMP_FORWARD            45 (to 519)
+
+167         474 POP_TOP
+            476 POP_TOP
+            478 POP_TOP
+
+168         480 LOAD_GLOBAL             10 (iLog)
+        >>  482 LOAD_CONST              36 (' Telegram message failed for ')
+            484 LOAD_FAST                1 (chat_id)
+            486 FORMAT_VALUE             0
+            488 BUILD_STRING             2
+            490 LOAD_CONST              37 (1)
+            492 CALL_FUNCTION            2
+            494 POP_TOP
+            496 POP_EXCEPT
+            498 JUMP_FORWARD            32 (to 532)
+
+169         500 LOAD_CONST              41 ('Algo already started')
+            502 STORE_FAST              21 (strResponse)
+
+171         504 SETUP_FINALLY           17 (to 523)
+
+172         506 LOAD_GLOBAL             16 (requests)
+            508 LOAD_METHOD             17 (get)
+            510 LOAD_CONST              33 ('https://api.telegram.org/')
+            512 LOAD_GLOBAL             18 (strBotToken)
+            514 BINARY_ADD
+            516 LOAD_CONST              34 ('/sendMessage?chat_id=')
+            518 BINARY_ADD
+            520 LOAD_FAST                1 (chat_id)
+            522 BINARY_ADD
+            524 LOAD_CONST              35 ('&text=')
+            526 BINARY_ADD
+            528 LOAD_FAST               21 (strResponse)
+            530 BINARY_ADD
+        >>  532 CALL_METHOD              1
+            534 POP_TOP
+            536 POP_BLOCK
+            538 JUMP_FORWARD            12 (to 552)
+
+173         540 POP_TOP
+            542 POP_TOP
+            544 POP_TOP
+
+174         546 LOAD_GLOBAL             10 (iLog)
+            548 LOAD_CONST              36 (' Telegram message failed for ')
+            550 LOAD_FAST                1 (chat_id)
+        >>  552 FORMAT_VALUE             0
+            554 BUILD_STRING             2
+            556 LOAD_CONST              37 (1)
+            558 CALL_FUNCTION            2
+            560 POP_TOP
+            562 POP_EXCEPT
+
+175         564 LOAD_GLOBAL              9 (any)
+            566 LOAD_CLOSURE             2 (text)
+            568 BUILD_TUPLE              1
+            570 LOAD_CONST              42 (<code object <genexpr> at 0x1032e7df0, file "Algo_Tele_V1.1.py", line 177>)
+            572 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+            574 MAKE_FUNCTION            8 (closure)
+            576 LOAD_FAST                4 (strLive)
+            578 GET_ITER
+            580 CALL_FUNCTION            1
+            582 CALL_FUNCTION            1
+            584 EXTENDED_ARG             1
+            586 POP_JUMP_IF_FALSE      382
+
+177         588 LOAD_GLOBAL             13 (cfg)
+            590 LOAD_METHOD              4 (read)
+            592 LOAD_CONST              27 ('Settings.ini')
+            594 CALL_METHOD              1
+            596 POP_TOP
+
+178         598 LOAD_FAST               16 (Algo_Running)
+            600 EXTENDED_ARG             1
+            602 POP_JUMP_IF_TRUE       350
+
+179         604 LOAD_GLOBAL             13 (cfg)
+            606 LOAD_METHOD              4 (read)
+            608 LOAD_CONST              27 ('Settings.ini')
+            610 CALL_METHOD              1
+            612 POP_TOP
+
+180         614 LOAD_GLOBAL             13 (cfg)
+            616 LOAD_METHOD             14 (set)
+            618 LOAD_CONST              28 ('algo')
+            620 LOAD_CONST              39 ('papertrade')
+            622 LOAD_CONST              43 ('0')
+            624 CALL_METHOD              3
+            626 POP_TOP
+
+181         628 LOAD_GLOBAL             15 (save_configfile)
+            630 CALL_FUNCTION            0
+            632 POP_TOP
+
+182         634 LOAD_CONST              44 ('Live Trade is On. Orders will be placed')
+            636 STORE_FAST              21 (strResponse)
+
+183         638 SETUP_FINALLY           17 (to 657)
+
+184         640 LOAD_GLOBAL             16 (requests)
+            642 LOAD_METHOD             17 (get)
+            644 LOAD_CONST              33 ('https://api.telegram.org/')
+            646 LOAD_GLOBAL             18 (strBotToken)
+            648 BINARY_ADD
+            650 LOAD_CONST              34 ('/sendMessage?chat_id=')
+            652 BINARY_ADD
+            654 LOAD_FAST                1 (chat_id)
+            656 BINARY_ADD
+            658 LOAD_CONST              35 ('&text=')
+            660 BINARY_ADD
+            662 LOAD_FAST               21 (strResponse)
+            664 BINARY_ADD
+            666 CALL_METHOD              1
+            668 POP_TOP
+            670 POP_BLOCK
+            672 JUMP_FORWARD            45 (to 719)
+
+185         674 POP_TOP
+            676 POP_TOP
+            678 POP_TOP
+
+186         680 LOAD_GLOBAL             10 (iLog)
+            682 LOAD_CONST              36 (' Telegram message failed for ')
+            684 LOAD_FAST                1 (chat_id)
+            686 FORMAT_VALUE             0
+            688 BUILD_STRING             2
+            690 LOAD_CONST              37 (1)
+            692 CALL_FUNCTION            2
+            694 POP_TOP
+            696 POP_EXCEPT
+            698 JUMP_FORWARD            32 (to 732)
+
+187         700 LOAD_CONST              41 ('Algo already started')
+            702 STORE_FAST              21 (strResponse)
+
+189         704 SETUP_FINALLY           17 (to 723)
+
+190         706 LOAD_GLOBAL             16 (requests)
+            708 LOAD_METHOD             17 (get)
+            710 LOAD_CONST              33 ('https://api.telegram.org/')
+            712 LOAD_GLOBAL             18 (strBotToken)
+            714 BINARY_ADD
+            716 LOAD_CONST              34 ('/sendMessage?chat_id=')
+            718 BINARY_ADD
+            720 LOAD_FAST                1 (chat_id)
+            722 BINARY_ADD
+            724 LOAD_CONST              35 ('&text=')
+            726 BINARY_ADD
+            728 LOAD_FAST               21 (strResponse)
+            730 BINARY_ADD
+        >>  732 CALL_METHOD              1
+            734 POP_TOP
+            736 POP_BLOCK
+            738 JUMP_FORWARD            12 (to 752)
+
+191         740 POP_TOP
+            742 POP_TOP
+            744 POP_TOP
+
+192         746 LOAD_GLOBAL             10 (iLog)
+            748 LOAD_CONST              36 (' Telegram message failed for ')
+            750 LOAD_FAST                1 (chat_id)
+        >>  752 FORMAT_VALUE             0
+            754 BUILD_STRING             2
+            756 LOAD_CONST              37 (1)
+            758 CALL_FUNCTION            2
+            760 POP_TOP
+            762 POP_EXCEPT
+
+193         764 LOAD_GLOBAL              7 (str)
+            766 LOAD_DEREF               2 (text)
+            768 LOAD_METHOD             19 (split)
+            770 CALL_METHOD              0
+            772 LOAD_CONST              45 (0)
+            774 BINARY_SUBSCR
+            776 CALL_FUNCTION            1
+            778 STORE_DEREF              0 (strSet)
+
+196         780 SETUP_FINALLY           10 (to 792)
+
+197         782 LOAD_GLOBAL              7 (str)
+            784 LOAD_DEREF               2 (text)
+            786 LOAD_METHOD             19 (split)
+            788 CALL_METHOD              0
+            790 LOAD_CONST              37 (1)
+        >>  792 BINARY_SUBSCR
+        >>  794 CALL_FUNCTION            1
+            796 STORE_FAST              22 (valSet)
+            798 POP_BLOCK
+            800 JUMP_FORWARD             4 (to 806)
+
+198         802 POP_TOP
+            804 POP_TOP
+        >>  806 POP_TOP
+
+199         808 POP_EXCEPT
+
+200         810 LOAD_GLOBAL              9 (any)
+            812 LOAD_CLOSURE             0 (strSet)
+            814 BUILD_TUPLE              1
+            816 LOAD_CONST              46 (<code object <genexpr> at 0x1032e7f50, file "Algo_Tele_V1.1.py", line 202>)
+            818 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+        >>  820 MAKE_FUNCTION            8 (closure)
+            822 LOAD_FAST                9 (strNumLots)
+            824 GET_ITER
+            826 CALL_FUNCTION            1
+            828 CALL_FUNCTION            1
+            830 EXTENDED_ARG             2
+            832 POP_JUMP_IF_FALSE      515
+
+202         834 LOAD_GLOBAL             13 (cfg)
+            836 LOAD_METHOD              4 (read)
+            838 LOAD_CONST              27 ('Settings.ini')
+        >>  840 CALL_METHOD              1
+        >>  842 POP_TOP
+
+203         844 LOAD_FAST               22 (valSet)
+            846 LOAD_METHOD             20 (isnumeric)
+            848 CALL_METHOD              0
+            850 EXTENDED_ARG             1
+            852 POP_JUMP_IF_FALSE      483
+
+204         854 LOAD_FAST               16 (Algo_Running)
+            856 EXTENDED_ARG             1
+            858 POP_JUMP_IF_TRUE       482
+
+206         860 LOAD_GLOBAL             13 (cfg)
+            862 LOAD_METHOD              4 (read)
+            864 LOAD_CONST              27 ('Settings.ini')
+            866 CALL_METHOD              1
+            868 POP_TOP
+
+208         870 LOAD_GLOBAL             13 (cfg)
+            872 LOAD_METHOD             14 (set)
+            874 LOAD_CONST              28 ('algo')
+            876 LOAD_CONST              47 ('no_of_lots')
+            878 LOAD_FAST               22 (valSet)
+        >>  880 CALL_METHOD              3
+            882 POP_TOP
+
+209         884 LOAD_GLOBAL             15 (save_configfile)
+            886 CALL_FUNCTION            0
+        >>  888 POP_TOP
+
+210         890 LOAD_CONST              48 ('Number of trades is set to: ')
+            892 LOAD_GLOBAL              7 (str)
+            894 LOAD_FAST               22 (valSet)
+            896 CALL_FUNCTION            1
+            898 BINARY_ADD
+            900 STORE_FAST              21 (strResponse)
+
+211         902 SETUP_FINALLY           17 (to 921)
+
+212         904 LOAD_GLOBAL             16 (requests)
+            906 LOAD_METHOD             17 (get)
+            908 LOAD_CONST              33 ('https://api.telegram.org/')
+            910 LOAD_GLOBAL             18 (strBotToken)
+            912 BINARY_ADD
+            914 LOAD_CONST              34 ('/sendMessage?chat_id=')
+            916 BINARY_ADD
+            918 LOAD_FAST                1 (chat_id)
+            920 BINARY_ADD
+            922 LOAD_CONST              35 ('&text=')
+            924 BINARY_ADD
+            926 LOAD_FAST               21 (strResponse)
+            928 BINARY_ADD
+            930 CALL_METHOD              1
+            932 POP_TOP
+            934 POP_BLOCK
+            936 JUMP_FORWARD            46 (to 984)
+
+213         938 POP_TOP
+            940 POP_TOP
+            942 POP_TOP
+
+214         944 LOAD_GLOBAL             10 (iLog)
+            946 LOAD_CONST              36 (' Telegram message failed for ')
+            948 LOAD_FAST                1 (chat_id)
+            950 FORMAT_VALUE             0
+            952 BUILD_STRING             2
+            954 LOAD_CONST              37 (1)
+            956 CALL_FUNCTION            2
+            958 POP_TOP
+            960 POP_EXCEPT
+            962 JUMP_FORWARD            33 (to 997)
+
+215         964 JUMP_FORWARD            32 (to 998)
+
+206         966 LOAD_CONST              49 ('Please enter valid format numlots n')
+            968 STORE_FAST              21 (strResponse)
+
+217         970 SETUP_FINALLY           17 (to 989)
+
+218         972 LOAD_GLOBAL             16 (requests)
+            974 LOAD_METHOD             17 (get)
+            976 LOAD_CONST              33 ('https://api.telegram.org/')
+            978 LOAD_GLOBAL             18 (strBotToken)
+            980 BINARY_ADD
+            982 LOAD_CONST              34 ('/sendMessage?chat_id=')
+        >>  984 BINARY_ADD
+            986 LOAD_FAST                1 (chat_id)
+            988 BINARY_ADD
+            990 LOAD_CONST              35 ('&text=')
+            992 BINARY_ADD
+            994 LOAD_FAST               21 (strResponse)
+            996 BINARY_ADD
+        >>  998 CALL_METHOD              1
+           1000 POP_TOP
+           1002 POP_BLOCK
+           1004 JUMP_FORWARD            12 (to 1018)
+
+219        1006 POP_TOP
+           1008 POP_TOP
+           1010 POP_TOP
+
+220        1012 LOAD_GLOBAL             10 (iLog)
+           1014 LOAD_CONST              36 (' Telegram message failed for ')
+           1016 LOAD_FAST                1 (chat_id)
+        >> 1018 FORMAT_VALUE             0
+           1020 BUILD_STRING             2
+           1022 LOAD_CONST              37 (1)
+        >> 1024 CALL_FUNCTION            2
+           1026 POP_TOP
+           1028 POP_EXCEPT
+
+221        1030 LOAD_GLOBAL              9 (any)
+           1032 LOAD_CLOSURE             2 (text)
+           1034 BUILD_TUPLE              1
+           1036 LOAD_CONST              50 (<code object <genexpr> at 0x1032e7ea0, file "Algo_Tele_V1.1.py", line 223>)
+           1038 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+           1040 MAKE_FUNCTION            8 (closure)
+           1042 LOAD_FAST               10 (strGetMTM)
+           1044 GET_ITER
+           1046 CALL_FUNCTION            1
+           1048 CALL_FUNCTION            1
+           1050 EXTENDED_ARG             2
+           1052 POP_JUMP_IF_FALSE      585
+
+223        1054 LOAD_FAST               16 (Algo_Running)
+           1056 EXTENDED_ARG             2
+           1058 POP_JUMP_IF_FALSE      585
+
+224        1060 SETUP_FINALLY           18 (to 1080)
+
+225        1062 LOAD_GLOBAL             21 (pd)
+           1064 LOAD_ATTR               22 (read_json)
+           1066 LOAD_CONST              51 ('./log/df_runtime.json')
+           1068 LOAD_CONST              52 ('records')
+           1070 LOAD_CONST              53 ('infer')
+           1072 LOAD_CONST              54 (('orient', 'compression'))
+           1074 CALL_FUNCTION_KW         3
+           1076 STORE_FAST              23 (df_rt)
+
+226        1078 LOAD_GLOBAL              7 (str)
+        >> 1080 LOAD_FAST               23 (df_rt)
+           1082 LOAD_CONST              55 ('Calc_MTM')
+           1084 BINARY_SUBSCR
+           1086 LOAD_CONST              45 (0)
+           1088 BINARY_SUBSCR
+           1090 CALL_FUNCTION            1
+           1092 STORE_FAST              21 (strResponse)
+           1094 POP_BLOCK
+           1096 JUMP_FORWARD             6 (to 1104)
+
+227        1098 POP_TOP
+           1100 POP_TOP
+           1102 POP_TOP
+
+228     >> 1104 LOAD_CONST              56 ('Runtime data file not found in logs')
+           1106 STORE_FAST              21 (strResponse)
+           1108 POP_EXCEPT
+
+229        1110 SETUP_FINALLY           17 (to 1129)
+
+230     >> 1112 LOAD_GLOBAL             16 (requests)
+           1114 LOAD_METHOD             17 (get)
+           1116 LOAD_CONST              33 ('https://api.telegram.org/')
+           1118 LOAD_GLOBAL             18 (strBotToken)
+           1120 BINARY_ADD
+           1122 LOAD_CONST              34 ('/sendMessage?chat_id=')
+           1124 BINARY_ADD
+           1126 LOAD_FAST                1 (chat_id)
+           1128 BINARY_ADD
+        >> 1130 LOAD_CONST              35 ('&text=')
+           1132 BINARY_ADD
+           1134 LOAD_FAST               21 (strResponse)
+           1136 BINARY_ADD
+        >> 1138 CALL_METHOD              1
+           1140 POP_TOP
+           1142 POP_BLOCK
+           1144 JUMP_FORWARD            12 (to 1158)
+
+231        1146 POP_TOP
+           1148 POP_TOP
+           1150 POP_TOP
+
+232        1152 LOAD_GLOBAL             10 (iLog)
+           1154 LOAD_CONST              36 (' Telegram message failed for ')
+           1156 LOAD_FAST                1 (chat_id)
+        >> 1158 FORMAT_VALUE             0
+           1160 BUILD_STRING             2
+           1162 LOAD_CONST              37 (1)
+           1164 CALL_FUNCTION            2
+           1166 POP_TOP
+           1168 POP_EXCEPT
+
+233        1170 LOAD_GLOBAL              9 (any)
+           1172 LOAD_CLOSURE             2 (text)
+           1174 BUILD_TUPLE              1
+           1176 LOAD_CONST              57 (<code object <genexpr> at 0x1032f00e0, file "Algo_Tele_V1.1.py", line 235>)
+           1178 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+           1180 MAKE_FUNCTION            8 (closure)
+           1182 LOAD_FAST               15 (strGetSettings)
+           1184 GET_ITER
+           1186 CALL_FUNCTION            1
+           1188 CALL_FUNCTION            1
+           1190 EXTENDED_ARG             2
+           1192 POP_JUMP_IF_FALSE      645
+
+235        1194 LOAD_GLOBAL             13 (cfg)
+           1196 LOAD_METHOD              4 (read)
+           1198 LOAD_CONST              58 ('settings.ini')
+           1200 CALL_METHOD              1
+           1202 POP_TOP
+
+236        1204 LOAD_GLOBAL             13 (cfg)
+           1206 LOAD_METHOD             23 (items)
+           1208 LOAD_CONST              28 ('algo')
+           1210 CALL_METHOD              1
+           1212 STORE_FAST              24 (df_set)
+
+237        1214 LOAD_CONST              59 ('\n')
+           1216 LOAD_METHOD             24 (join)
+           1218 LOAD_GLOBAL             25 (map)
+           1220 LOAD_GLOBAL              7 (str)
+           1222 LOAD_FAST               24 (df_set)
+           1224 CALL_FUNCTION            2
+           1226 CALL_METHOD              1
+           1228 STORE_FAST              25 (strMsgSet)
+
+238        1230 SETUP_FINALLY           17 (to 1249)
+
+239        1232 LOAD_GLOBAL             16 (requests)
+           1234 LOAD_METHOD             17 (get)
+           1236 LOAD_CONST              33 ('https://api.telegram.org/')
+           1238 LOAD_GLOBAL             18 (strBotToken)
+           1240 BINARY_ADD
+           1242 LOAD_CONST              34 ('/sendMessage?chat_id=')
+           1244 BINARY_ADD
+           1246 LOAD_FAST                1 (chat_id)
+           1248 BINARY_ADD
+           1250 LOAD_CONST              35 ('&text=')
+           1252 BINARY_ADD
+           1254 LOAD_FAST               25 (strMsgSet)
+           1256 BINARY_ADD
+           1258 CALL_METHOD              1
+           1260 POP_TOP
+           1262 POP_BLOCK
+           1264 JUMP_FORWARD            12 (to 1278)
+
+240        1266 POP_TOP
+           1268 POP_TOP
+           1270 POP_TOP
+
+241        1272 LOAD_GLOBAL             10 (iLog)
+           1274 LOAD_CONST              36 (' Telegram message failed for ')
+           1276 LOAD_FAST                1 (chat_id)
+        >> 1278 FORMAT_VALUE             0
+           1280 BUILD_STRING             2
+           1282 LOAD_CONST              37 (1)
+           1284 CALL_FUNCTION            2
+           1286 POP_TOP
+           1288 POP_EXCEPT
+
+242        1290 LOAD_GLOBAL              9 (any)
+           1292 LOAD_CLOSURE             2 (text)
+           1294 BUILD_TUPLE              1
+           1296 LOAD_CONST              60 (<code object <genexpr> at 0x1032f0030, file "Algo_Tele_V1.1.py", line 244>)
+           1298 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+           1300 MAKE_FUNCTION            8 (closure)
+           1302 LOAD_FAST               13 (strGetLog)
+           1304 GET_ITER
+           1306 CALL_FUNCTION            1
+           1308 CALL_FUNCTION            1
+           1310 EXTENDED_ARG             2
+           1312 POP_JUMP_IF_FALSE      679
+
+244        1314 LOAD_CONST              61 ('./log/')
+           1316 LOAD_GLOBAL             26 (strLogfileName)
+           1318 BINARY_ADD
+           1320 LOAD_CONST              62 ('_')
+           1322 BINARY_ADD
+           1324 LOAD_GLOBAL             27 (datetime)
+           1326 LOAD_ATTR               27 (datetime)
+           1328 LOAD_METHOD             28 (now)
+           1330 CALL_METHOD              0
+           1332 LOAD_METHOD             29 (strftime)
+           1334 LOAD_CONST              63 ('%Y%m%d')
+           1336 CALL_METHOD              1
+           1338 BINARY_ADD
+           1340 LOAD_CONST              64 ('.log')
+           1342 BINARY_ADD
+           1344 DUP_TOP
+           1346 STORE_FAST              26 (fname)
+           1348 STORE_FAST              26 (fname)
+
+245        1350 LOAD_GLOBAL             30 (sendTeleFile)
+           1352 LOAD_FAST               26 (fname)
+           1354 CALL_FUNCTION            1
+           1356 POP_TOP
+
+246        1358 LOAD_GLOBAL              9 (any)
+           1360 LOAD_CLOSURE             2 (text)
+           1362 BUILD_TUPLE              1
+           1364 LOAD_CONST              65 (<code object <genexpr> at 0x103365710, file "Algo_Tele_V1.1.py", line 248>)
+           1366 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+           1368 MAKE_FUNCTION            8 (closure)
+           1370 LOAD_FAST               14 (strGetTeleLog)
+           1372 GET_ITER
+           1374 CALL_FUNCTION            1
+           1376 CALL_FUNCTION            1
+           1378 EXTENDED_ARG             2
+           1380 POP_JUMP_IF_FALSE      713
+
+248        1382 LOAD_CONST              61 ('./log/')
+           1384 LOAD_GLOBAL             26 (strLogfileName)
+           1386 BINARY_ADD
+           1388 LOAD_CONST              66 ('_Tele_')
+           1390 BINARY_ADD
+           1392 LOAD_GLOBAL             27 (datetime)
+           1394 LOAD_ATTR               27 (datetime)
+           1396 LOAD_METHOD             28 (now)
+           1398 CALL_METHOD              0
+           1400 LOAD_METHOD             29 (strftime)
+           1402 LOAD_CONST              63 ('%Y%m%d')
+           1404 CALL_METHOD              1
+           1406 BINARY_ADD
+           1408 LOAD_CONST              64 ('.log')
+           1410 BINARY_ADD
+           1412 DUP_TOP
+           1414 STORE_FAST              26 (fname)
+           1416 STORE_FAST              26 (fname)
+
+249        1418 LOAD_GLOBAL             30 (sendTeleFile)
+           1420 LOAD_FAST               26 (fname)
+           1422 CALL_FUNCTION            1
+           1424 POP_TOP
+
+250        1426 LOAD_GLOBAL              9 (any)
+           1428 LOAD_CLOSURE             2 (text)
+           1430 BUILD_TUPLE              1
+           1432 LOAD_CONST              67 (<code object <genexpr> at 0x103308f50, file "Algo_Tele_V1.1.py", line 252>)
+           1434 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+           1436 MAKE_FUNCTION            8 (closure)
+           1438 LOAD_FAST                5 (strStart)
+           1440 GET_ITER
+           1442 CALL_FUNCTION            1
+           1444 CALL_FUNCTION            1
+           1446 EXTENDED_ARG             3
+           1448 POP_JUMP_IF_FALSE      777
+
+252        1450 LOAD_FAST               16 (Algo_Running)
+           1452 EXTENDED_ARG             2
+           1454 POP_JUMP_IF_FALSE      731
+
+253        1456 LOAD_CONST              68 ('Algo Already Running')
+           1458 STORE_FAST              27 (strMsg)
+           1460 JUMP_FORWARD            16 (to 1478)
+
+254        1462 SETUP_FINALLY           11 (to 1475)
+
+256        1464 LOAD_GLOBAL              0 (os)
+           1466 LOAD_METHOD             31 (system)
+           1468 LOAD_CONST              69 ('start cmd /c')
+           1470 LOAD_FAST               18 (Algo_Name)
+           1472 BINARY_ADD
+           1474 CALL_METHOD              1
+           1476 POP_TOP
+
+257     >> 1478 LOAD_CONST              70 ('Algo start command sent')
+           1480 STORE_FAST              27 (strMsg)
+           1482 POP_BLOCK
+           1484 JUMP_FORWARD             4 (to 1490)
+
+258        1486 POP_TOP
+           1488 POP_TOP
+        >> 1490 POP_TOP
+
+259        1492 POP_EXCEPT
+
+260        1494 SETUP_FINALLY           17 (to 1513)
+
+261        1496 LOAD_GLOBAL             16 (requests)
+           1498 LOAD_METHOD             17 (get)
+           1500 LOAD_CONST              33 ('https://api.telegram.org/')
+           1502 LOAD_GLOBAL             18 (strBotToken)
+           1504 BINARY_ADD
+           1506 LOAD_CONST              34 ('/sendMessage?chat_id=')
+           1508 BINARY_ADD
+           1510 LOAD_FAST                1 (chat_id)
+           1512 BINARY_ADD
+           1514 LOAD_CONST              35 ('&text=')
+           1516 BINARY_ADD
+           1518 LOAD_FAST               27 (strMsg)
+           1520 BINARY_ADD
+           1522 CALL_METHOD              1
+           1524 POP_TOP
+           1526 POP_BLOCK
+           1528 JUMP_FORWARD            12 (to 1542)
+
+262        1530 POP_TOP
+           1532 POP_TOP
+           1534 POP_TOP
+
+264        1536 LOAD_GLOBAL             10 (iLog)
+           1538 LOAD_CONST              36 (' Telegram message failed for ')
+           1540 LOAD_FAST                1 (chat_id)
+        >> 1542 FORMAT_VALUE             0
+           1544 BUILD_STRING             2
+           1546 LOAD_CONST              37 (1)
+           1548 CALL_FUNCTION            2
+           1550 POP_TOP
+           1552 POP_EXCEPT
+
+265        1554 LOAD_GLOBAL              9 (any)
+           1556 LOAD_CLOSURE             2 (text)
+           1558 BUILD_TUPLE              1
+           1560 LOAD_CONST              71 (<code object <genexpr> at 0x103308030, file "Algo_Tele_V1.1.py", line 268>)
+           1562 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+           1564 MAKE_FUNCTION            8 (closure)
+           1566 LOAD_FAST                7 (strKill)
+           1568 GET_ITER
+           1570 CALL_FUNCTION            1
+           1572 CALL_FUNCTION            1
+           1574 EXTENDED_ARG             3
+           1576 POP_JUMP_IF_FALSE      933
+
+268        1578 LOAD_FAST               16 (Algo_Running)
+           1580 EXTENDED_ARG             3
+           1582 POP_JUMP_IF_TRUE       794
+
+269        1584 LOAD_CONST              72 ('Algo is not Running')
+           1586 STORE_FAST              27 (strMsg)
+
+270        1588 LOAD_FAST               16 (Algo_Running)
+           1590 EXTENDED_ARG             3
+           1592 POP_JUMP_IF_FALSE      888
+
+271        1594 LOAD_GLOBAL             32 (psutil)
+           1596 LOAD_METHOD             33 (pids)
+           1598 CALL_METHOD              0
+           1600 GET_ITER
+           1602 FOR_ITER                51 (to 1655)
+           1604 STORE_FAST              28 (pid)
+
+272        1606 SETUP_FINALLY           41 (to 1649)
+
+273        1608 LOAD_GLOBAL             32 (psutil)
+           1610 LOAD_METHOD             34 (Process)
+           1612 LOAD_FAST               28 (pid)
+           1614 CALL_METHOD              1
+           1616 STORE_FAST              29 (p)
+
+274        1618 LOAD_CONST              73 ('python')
+           1620 LOAD_FAST               29 (p)
+           1622 LOAD_METHOD             35 (name)
+           1624 CALL_METHOD              0
+           1626 CONTAINS_OP              0
+           1628 EXTENDED_ARG             3
+           1630 POP_JUMP_IF_FALSE      842
+
+275        1632 LOAD_FAST               29 (p)
+           1634 LOAD_METHOD             36 (cmdline)
+           1636 CALL_METHOD              0
+           1638 GET_ITER
+           1640 FOR_ITER                21 (to 1663)
+           1642 STORE_FAST              30 (arg)
+
+276        1644 LOAD_FAST               18 (Algo_Name)
+           1646 LOAD_GLOBAL              7 (str)
+           1648 LOAD_FAST               30 (arg)
+           1650 CALL_FUNCTION            1
+           1652 CONTAINS_OP              0
+           1654 EXTENDED_ARG             3
+           1656 POP_JUMP_IF_FALSE      840
+
+277        1658 LOAD_GLOBAL             32 (psutil)
+           1660 LOAD_METHOD             34 (Process)
+           1662 LOAD_FAST               28 (pid)
+           1664 CALL_METHOD              1
+           1666 STORE_FAST              31 (p1)
+
+278        1668 LOAD_FAST               31 (p1)
+           1670 LOAD_METHOD             37 (kill)
+           1672 CALL_METHOD              0
+           1674 POP_TOP
+
+279        1676 LOAD_CONST              74 ('Algo kill command sent')
+           1678 STORE_FAST              27 (strMsg)
+
+280        1680 EXTENDED_ARG             3
+           1682 JUMP_ABSOLUTE          820
+           1684 POP_BLOCK
+           1686 EXTENDED_ARG             3
+           1688 JUMP_ABSOLUTE          801
+
+152        1690 POP_TOP
+           1692 POP_TOP
+           1694 POP_TOP
+
+153        1696 LOAD_CONST              75 ('Could not kill the process. Close from system')
+           1698 STORE_FAST              27 (strMsg)
+           1700 POP_EXCEPT
+           1702 EXTENDED_ARG             3
+           1704 JUMP_ABSOLUTE          801
+
+154        1706 LOAD_GLOBAL             38 (time)
+           1708 LOAD_METHOD             39 (sleep)
+           1710 LOAD_CONST              76 (2)
+           1712 CALL_METHOD              1
+           1714 POP_TOP
+
+155        1716 SETUP_FINALLY           25 (to 1743)
+
+158        1718 LOAD_GLOBAL              0 (os)
+           1720 LOAD_METHOD              3 (popen)
+           1722 LOAD_CONST              20 ('wmic process get commandline')
+           1724 CALL_METHOD              1
+           1726 LOAD_METHOD              4 (read)
+           1728 CALL_METHOD              0
+           1730 STORE_FAST              32 (output2)
+
+159        1732 LOAD_GLOBAL              5 (re)
+           1734 LOAD_METHOD              6 (findall)
+           1736 LOAD_CONST              21 ('"(.*?)(?<!\\\\)"')
+           1738 LOAD_FAST               32 (output2)
+           1740 CALL_METHOD              2
+           1742 STORE_FAST              33 (lst2)
+
+160        1744 LOAD_FAST               18 (Algo_Name)
+           1746 LOAD_FAST               33 (lst2)
+           1748 CONTAINS_OP              0
+           1750 EXTENDED_ARG             3
+           1752 POP_JUMP_IF_FALSE      880
+
+161        1754 LOAD_CONST              77 ('Algo still Running. Check system')
+           1756 STORE_FAST              34 (strMsg2)
+           1758 JUMP_FORWARD             2 (to 1762)
+
+162        1760 LOAD_CONST              78 ('Algo program stopped successfully')
+        >> 1762 STORE_FAST              34 (strMsg2)
+
+164        1764 POP_BLOCK
+           1766 JUMP_FORWARD             4 (to 1772)
+
+ 36        1768 POP_TOP
+           1770 POP_TOP
+        >> 1772 POP_TOP
+
+ 37        1774 POP_EXCEPT
+
+ 38        1776 SETUP_FINALLY           32 (to 1810)
+
+ 39        1778 LOAD_GLOBAL             16 (requests)
+           1780 LOAD_METHOD             17 (get)
+           1782 LOAD_CONST              33 ('https://api.telegram.org/')
+           1784 LOAD_GLOBAL             18 (strBotToken)
+           1786 BINARY_ADD
+           1788 LOAD_CONST              34 ('/sendMessage?chat_id=')
+           1790 BINARY_ADD
+           1792 LOAD_FAST                1 (chat_id)
+           1794 BINARY_ADD
+           1796 LOAD_CONST              35 ('&text=')
+           1798 BINARY_ADD
+           1800 LOAD_FAST               27 (strMsg)
+           1802 BINARY_ADD
+           1804 CALL_METHOD              1
+           1806 POP_TOP
+
+ 40        1808 LOAD_GLOBAL             16 (requests)
+        >> 1810 LOAD_METHOD             17 (get)
+           1812 LOAD_CONST              33 ('https://api.telegram.org/')
+           1814 LOAD_GLOBAL             18 (strBotToken)
+           1816 BINARY_ADD
+           1818 LOAD_CONST              34 ('/sendMessage?chat_id=')
+           1820 BINARY_ADD
+           1822 LOAD_FAST                1 (chat_id)
+           1824 BINARY_ADD
+           1826 LOAD_CONST              35 ('&text=')
+           1828 BINARY_ADD
+           1830 LOAD_FAST               34 (strMsg2)
+           1832 BINARY_ADD
+           1834 CALL_METHOD              1
+           1836 POP_TOP
+           1838 POP_BLOCK
+           1840 JUMP_FORWARD            12 (to 1854)
+
+ 41        1842 POP_TOP
+           1844 POP_TOP
+           1846 POP_TOP
+
+ 43        1848 LOAD_GLOBAL             10 (iLog)
+           1850 LOAD_CONST              36 (' Telegram message failed for ')
+           1852 LOAD_FAST                1 (chat_id)
+        >> 1854 FORMAT_VALUE             0
+           1856 BUILD_STRING             2
+           1858 LOAD_CONST              37 (1)
+           1860 CALL_FUNCTION            2
+           1862 POP_TOP
+           1864 POP_EXCEPT
+
+ 44        1866 LOAD_GLOBAL              9 (any)
+           1868 LOAD_CLOSURE             2 (text)
+           1870 BUILD_TUPLE              1
+           1872 LOAD_CONST              79 (<code object <genexpr> at 0x103308190, file "Algo_Tele_V1.1.py", line 302>)
+           1874 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+           1876 MAKE_FUNCTION            8 (closure)
+           1878 LOAD_FAST                8 (strStatus)
+           1880 GET_ITER
+           1882 CALL_FUNCTION            1
+           1884 CALL_FUNCTION            1
+           1886 EXTENDED_ARG             3
+           1888 POP_JUMP_IF_FALSE      983
+
+ 46        1890 LOAD_FAST               16 (Algo_Running)
+           1892 EXTENDED_ARG             3
+           1894 POP_JUMP_IF_FALSE      951
+
+ 47        1896 LOAD_CONST              80 ('Algo is Running')
+           1898 STORE_FAST              27 (strMsg)
+           1900 JUMP_FORWARD             2 (to 1904)
+
+ 48        1902 LOAD_CONST              81 ('Algo Not Running')
+        >> 1904 STORE_FAST              27 (strMsg)
+
+ 50        1906 SETUP_FINALLY           17 (to 1925)
+
+ 51        1908 LOAD_GLOBAL             16 (requests)
+           1910 LOAD_METHOD             17 (get)
+           1912 LOAD_CONST              33 ('https://api.telegram.org/')
+           1914 LOAD_GLOBAL             18 (strBotToken)
+           1916 BINARY_ADD
+           1918 LOAD_CONST              34 ('/sendMessage?chat_id=')
+           1920 BINARY_ADD
+           1922 LOAD_FAST                1 (chat_id)
+           1924 BINARY_ADD
+           1926 LOAD_CONST              35 ('&text=')
+           1928 BINARY_ADD
+           1930 LOAD_FAST               27 (strMsg)
+           1932 BINARY_ADD
+           1934 CALL_METHOD              1
+           1936 POP_TOP
+           1938 POP_BLOCK
+           1940 JUMP_FORWARD            12 (to 1954)
+
+ 52        1942 POP_TOP
+           1944 POP_TOP
+           1946 POP_TOP
+
+ 53        1948 LOAD_GLOBAL             10 (iLog)
+           1950 LOAD_CONST              36 (' Telegram message failed for ')
+           1952 LOAD_FAST                1 (chat_id)
+        >> 1954 FORMAT_VALUE             0
+           1956 BUILD_STRING             2
+           1958 LOAD_CONST              37 (1)
+           1960 CALL_FUNCTION            2
+           1962 POP_TOP
+           1964 POP_EXCEPT
+
+ 54        1966 LOAD_GLOBAL             40 (print)
+           1968 LOAD_GLOBAL             41 (len)
+           1970 LOAD_DEREF               2 (text)
+           1972 LOAD_METHOD             19 (split)
+           1974 CALL_METHOD              0
+           1976 CALL_FUNCTION            1
+           1978 CALL_FUNCTION            1
+           1980 POP_TOP
+
+ 56        1982 LOAD_GLOBAL             41 (len)
+           1984 LOAD_DEREF               2 (text)
+           1986 LOAD_METHOD             19 (split)
+           1988 CALL_METHOD              0
+           1990 CALL_FUNCTION            1
+           1992 LOAD_CONST              76 (2)
+           1994 COMPARE_OP               4 (>)
+           1996 EXTENDED_ARG             4
+           1998 POP_JUMP_IF_FALSE     1024
+
+ 57        2000 LOAD_DEREF               2 (text)
+           2002 LOAD_METHOD             19 (split)
+           2004 CALL_METHOD              0
+           2006 LOAD_CONST              45 (0)
+           2008 BINARY_SUBSCR
+           2010 LOAD_CONST              82 (' ')
+           2012 BINARY_ADD
+           2014 LOAD_DEREF               2 (text)
+           2016 LOAD_METHOD             19 (split)
+           2018 CALL_METHOD              0
+           2020 LOAD_CONST              37 (1)
+           2022 BINARY_SUBSCR
+           2024 BINARY_ADD
+           2026 STORE_DEREF              1 (strSetText)
+
+ 58        2028 LOAD_DEREF               2 (text)
+           2030 LOAD_METHOD             19 (split)
+           2032 CALL_METHOD              0
+           2034 LOAD_CONST              76 (2)
+           2036 BINARY_SUBSCR
+           2038 STORE_FAST              22 (valSet)
+
+ 59        2040 LOAD_GLOBAL             40 (print)
+           2042 LOAD_FAST               22 (valSet)
+           2044 CALL_FUNCTION            1
+           2046 POP_TOP
+
+ 60        2048 LOAD_GLOBAL              9 (any)
+           2050 LOAD_CLOSURE             1 (strSetText)
+           2052 BUILD_TUPLE              1
+           2054 LOAD_CONST              83 (<code object <genexpr> at 0x103308be0, file "Algo_Tele_V1.1.py", line 318>)
+           2056 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+           2058 MAKE_FUNCTION            8 (closure)
+           2060 LOAD_FAST               11 (strSetTgt)
+           2062 GET_ITER
+           2064 CALL_FUNCTION            1
+           2066 CALL_FUNCTION            1
+           2068 EXTENDED_ARG             4
+           2070 POP_JUMP_IF_FALSE     1138
+
+ 62        2072 LOAD_GLOBAL             42 (configparser)
+           2074 LOAD_METHOD             43 (ConfigParser)
+           2076 CALL_METHOD              0
+           2078 STORE_GLOBAL            13 (cfg)
+
+ 64        2080 LOAD_GLOBAL             13 (cfg)
+           2082 LOAD_METHOD              4 (read)
+           2084 LOAD_CONST              27 ('Settings.ini')
+           2086 CALL_METHOD              1
+           2088 POP_TOP
+
+ 65        2090 LOAD_GLOBAL             44 (int)
+           2092 LOAD_FAST                1 (chat_id)
+           2094 CALL_FUNCTION            1
+           2096 LOAD_GLOBAL             44 (int)
+           2098 LOAD_GLOBAL             12 (strChatID)
+           2100 CALL_FUNCTION            1
+           2102 COMPARE_OP               2 (==)
+           2104 EXTENDED_ARG             4
+           2106 POP_JUMP_IF_FALSE     1130
+
+ 66        2108 LOAD_GLOBAL             41 (len)
+           2110 LOAD_DEREF               2 (text)
+           2112 LOAD_METHOD             19 (split)
+           2114 LOAD_CONST              82 (' ')
+           2116 CALL_METHOD              1
+           2118 CALL_FUNCTION            1
+           2120 LOAD_CONST              76 (2)
+           2122 COMPARE_OP               4 (>)
+           2124 EXTENDED_ARG             4
+           2126 POP_JUMP_IF_FALSE     1121
+
+ 67        2128 LOAD_FAST               22 (valSet)
+           2130 LOAD_METHOD             20 (isnumeric)
+           2132 CALL_METHOD              0
+           2134 EXTENDED_ARG             4
+           2136 POP_JUMP_IF_FALSE     1112
+
+ 68        2138 LOAD_CONST              28 ('algo')
+           2140 STORE_FAST              35 (sec)
+
+ 69        2142 LOAD_CONST              84 ('normal_perlot_mtm_target')
+           2144 STORE_FAST              36 (param)
+
+ 70        2146 LOAD_DEREF               2 (text)
+           2148 LOAD_METHOD             19 (split)
+           2150 CALL_METHOD              0
+           2152 LOAD_CONST              76 (2)
+           2154 BINARY_SUBSCR
+           2156 LOAD_METHOD             45 (strip)
+           2158 CALL_METHOD              0
+           2160 STORE_FAST              37 (param_val)
+
+ 71        2162 LOAD_GLOBAL             13 (cfg)
+           2164 LOAD_METHOD             14 (set)
+           2166 LOAD_CONST              28 ('algo')
+           2168 LOAD_FAST               36 (param)
+           2170 LOAD_FAST               37 (param_val)
+           2172 CALL_METHOD              3
+           2174 POP_TOP
+
+ 72        2176 LOAD_GLOBAL             15 (save_configfile)
+           2178 CALL_FUNCTION            0
+           2180 POP_TOP
+
+ 73        2182 LOAD_CONST              85 ('Section ')
+           2184 LOAD_FAST               35 (sec)
+           2186 BINARY_ADD
+           2188 LOAD_CONST              86 (' parameter ')
+           2190 BINARY_ADD
+           2192 LOAD_FAST               36 (param)
+           2194 BINARY_ADD
+           2196 LOAD_CONST              87 (' updated with value ')
+           2198 BINARY_ADD
+           2200 LOAD_FAST               37 (param_val)
+           2202 BINARY_ADD
+           2204 LOAD_CONST              88 (' |Reset after Algo exits')
+           2206 BINARY_ADD
+           2208 STORE_FAST              27 (strMsg)
+
+ 74        2210 LOAD_GLOBAL             10 (iLog)
+           2212 LOAD_FAST               27 (strMsg)
+           2214 LOAD_CONST              22 (True)
+           2216 LOAD_CONST              25 (('sendTeleMsg',))
+           2218 CALL_FUNCTION_KW         2
+           2220 POP_TOP
+           2222 JUMP_FORWARD            26 (to 2250)
+
+ 75        2224 LOAD_CONST              89 ('Please enter numeric value for target.')
+           2226 STORE_FAST              27 (strMsg)
+
+ 77        2228 LOAD_GLOBAL             10 (iLog)
+           2230 LOAD_FAST               27 (strMsg)
+           2232 LOAD_CONST              22 (True)
+           2234 LOAD_CONST              25 (('sendTeleMsg',))
+           2236 CALL_FUNCTION_KW         2
+           2238 POP_TOP
+           2240 JUMP_FORWARD            17 (to 2259)
+
+ 78        2242 LOAD_CONST              90 ('Use format - set target VALUE')
+           2244 STORE_FAST              27 (strMsg)
+
+ 80        2246 LOAD_GLOBAL             10 (iLog)
+           2248 LOAD_FAST               27 (strMsg)
+        >> 2250 LOAD_CONST              22 (True)
+           2252 LOAD_CONST              25 (('sendTeleMsg',))
+           2254 CALL_FUNCTION_KW         2
+           2256 POP_TOP
+           2258 JUMP_FORWARD             8 (to 2268)
+
+ 81        2260 LOAD_CONST              91 ('Not admin user.')
+           2262 STORE_FAST              27 (strMsg)
+
+ 84        2264 LOAD_GLOBAL             10 (iLog)
+           2266 LOAD_FAST               27 (strMsg)
+        >> 2268 LOAD_CONST              22 (True)
+           2270 LOAD_CONST              25 (('sendTeleMsg',))
+           2272 CALL_FUNCTION_KW         2
+           2274 POP_TOP
+
+ 85        2276 LOAD_GLOBAL             41 (len)
+           2278 LOAD_DEREF               2 (text)
+           2280 LOAD_METHOD             19 (split)
+           2282 CALL_METHOD              0
+           2284 CALL_FUNCTION            1
+           2286 LOAD_CONST              37 (1)
+           2288 COMPARE_OP               4 (>)
+           2290 EXTENDED_ARG             4
+           2292 POP_JUMP_IF_FALSE     1161
+
+ 88        2294 LOAD_DEREF               2 (text)
+           2296 LOAD_METHOD             19 (split)
+           2298 CALL_METHOD              0
+           2300 LOAD_CONST              45 (0)
+           2302 BINARY_SUBSCR
+           2304 LOAD_CONST              82 (' ')
+           2306 BINARY_ADD
+           2308 LOAD_DEREF               2 (text)
+           2310 LOAD_METHOD             19 (split)
+           2312 CALL_METHOD              0
+           2314 LOAD_CONST              37 (1)
+           2316 BINARY_SUBSCR
+           2318 BINARY_ADD
+           2320 STORE_DEREF              1 (strSetText)
+
+ 89        2322 LOAD_GLOBAL              9 (any)
+           2324 LOAD_CLOSURE             1 (strSetText)
+           2326 BUILD_TUPLE              1
+           2328 LOAD_CONST              92 (<code object <genexpr> at 0x103308710, file "Algo_Tele_V1.1.py", line 347>)
+           2330 LOAD_CONST              24 ('parseCommand.<locals>.<genexpr>')
+           2332 MAKE_FUNCTION            8 (closure)
+           2334 LOAD_FAST               12 (strSetParam)
+           2336 GET_ITER
+           2338 CALL_FUNCTION            1
+           2340 CALL_FUNCTION            1
+           2342 EXTENDED_ARG             4
+           2344 POP_JUMP_IF_FALSE     1257
+
+ 91        2346 LOAD_GLOBAL             42 (configparser)
+           2348 LOAD_METHOD             43 (ConfigParser)
+           2350 CALL_METHOD              0
+           2352 STORE_GLOBAL            13 (cfg)
+
+ 93        2354 LOAD_GLOBAL             13 (cfg)
+           2356 LOAD_METHOD              4 (read)
+           2358 LOAD_CONST              27 ('Settings.ini')
+           2360 CALL_METHOD              1
+           2362 POP_TOP
+
+ 94        2364 LOAD_GLOBAL             44 (int)
+           2366 LOAD_FAST                1 (chat_id)
+           2368 CALL_FUNCTION            1
+           2370 LOAD_GLOBAL             44 (int)
+           2372 LOAD_GLOBAL             12 (strChatID)
+           2374 CALL_FUNCTION            1
+           2376 COMPARE_OP               2 (==)
+           2378 EXTENDED_ARG             4
+           2380 POP_JUMP_IF_FALSE     1259
+
+ 95        2382 LOAD_GLOBAL             41 (len)
+           2384 LOAD_DEREF               2 (text)
+           2386 LOAD_METHOD             19 (split)
+           2388 LOAD_CONST              82 (' ')
+           2390 CALL_METHOD              1
+           2392 CALL_FUNCTION            1
+           2394 LOAD_CONST              76 (2)
+           2396 COMPARE_OP               4 (>)
+           2398 EXTENDED_ARG             4
+           2400 POP_JUMP_IF_FALSE     1247
+
+ 96        2402 LOAD_CONST              28 ('algo')
+           2404 STORE_FAST              35 (sec)
+
+ 97        2406 LOAD_DEREF               2 (text)
+           2408 LOAD_METHOD             19 (split)
+           2410 CALL_METHOD              0
+           2412 LOAD_CONST              76 (2)
+           2414 BINARY_SUBSCR
+           2416 STORE_FAST              36 (param)
+
+ 98        2418 LOAD_DEREF               2 (text)
+           2420 LOAD_METHOD             19 (split)
+           2422 CALL_METHOD              0
+           2424 LOAD_CONST              93 (3)
+           2426 BINARY_SUBSCR
+           2428 LOAD_METHOD             45 (strip)
+           2430 CALL_METHOD              0
+           2432 STORE_FAST              37 (param_val)
+
+ 99        2434 LOAD_GLOBAL             13 (cfg)
+           2436 LOAD_METHOD             14 (set)
+           2438 LOAD_CONST              28 ('algo')
+           2440 LOAD_FAST               36 (param)
+           2442 LOAD_FAST               37 (param_val)
+           2444 CALL_METHOD              3
+           2446 POP_TOP
+
+100        2448 LOAD_GLOBAL             15 (save_configfile)
+           2450 CALL_FUNCTION            0
+           2452 POP_TOP
+
+101        2454 LOAD_CONST              85 ('Section ')
+           2456 LOAD_FAST               35 (sec)
+           2458 BINARY_ADD
+           2460 LOAD_CONST              86 (' parameter ')
+           2462 BINARY_ADD
+           2464 LOAD_FAST               36 (param)
+           2466 BINARY_ADD
+           2468 LOAD_CONST              87 (' updated with value ')
+           2470 BINARY_ADD
+           2472 LOAD_FAST               37 (param_val)
+           2474 BINARY_ADD
+           2476 STORE_FAST              27 (strMsg)
+
+102        2478 LOAD_GLOBAL             10 (iLog)
+           2480 LOAD_FAST               27 (strMsg)
+           2482 LOAD_CONST              22 (True)
+           2484 LOAD_CONST              25 (('sendTeleMsg',))
+           2486 CALL_FUNCTION_KW         2
+           2488 POP_TOP
+           2490 LOAD_CONST               0 (None)
+           2492 RETURN_VALUE
+
+103        2494 LOAD_CONST              94 ('Section or parameter not found.')
+           2496 STORE_FAST              27 (strMsg)
+
+105        2498 LOAD_GLOBAL             10 (iLog)
+           2500 LOAD_FAST               27 (strMsg)
+           2502 LOAD_CONST              22 (True)
+           2504 LOAD_CONST              25 (('sendTeleMsg',))
+           2506 CALL_FUNCTION_KW         2
+           2508 POP_TOP
+           2510 LOAD_CONST               0 (None)
+           2512 RETURN_VALUE
+
+106        2514 LOAD_CONST               0 (None)
+           2516 RETURN_VALUE
+
+ 91        2518 LOAD_CONST               0 (None)
+           2520 RETURN_VALUE
+
+ 95        2522 LOAD_CONST              91 ('Not admin user.')
+           2524 STORE_FAST              27 (strMsg)
+
+109        2526 LOAD_GLOBAL             10 (iLog)
+           2528 LOAD_FAST               27 (strMsg)
+           2530 LOAD_CONST              22 (True)
+           2532 LOAD_CONST              25 (('sendTeleMsg',))
+           2534 CALL_FUNCTION_KW         2
+           2536 POP_TOP
+           2538 LOAD_CONST               0 (None)
+           2540 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1032e72f0, file "Algo_Tele_V1.1.py", line 141>:
+141           0 <129>                    0
+
+ 13     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1032e7240, file "Algo_Tele_V1.1.py", line 144>:
+144           0 <129>                    0
+
+ 16     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1032e70e0, file "Algo_Tele_V1.1.py", line 159>:
+159           0 <129>                    0
+
+ 31     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1032e7df0, file "Algo_Tele_V1.1.py", line 177>:
+177           0 <129>                    0
+
+ 49     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1032e7f50, file "Algo_Tele_V1.1.py", line 202>:
+202           0 <129>                    0
+
+ 74     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (strSet)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1032e7ea0, file "Algo_Tele_V1.1.py", line 223>:
+223           0 <129>                    0
+
+ 95     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1032f00e0, file "Algo_Tele_V1.1.py", line 235>:
+235           0 <129>                    0
+
+107     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x1032f0030, file "Algo_Tele_V1.1.py", line 244>:
+244           0 <129>                    0
+
+116     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x103365710, file "Algo_Tele_V1.1.py", line 248>:
+248           0 <129>                    0
+
+120     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x103308f50, file "Algo_Tele_V1.1.py", line 252>:
+252           0 <129>                    0
+
+124     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x103308030, file "Algo_Tele_V1.1.py", line 268>:
+268           0 <129>                    0
+
+140     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x103308190, file "Algo_Tele_V1.1.py", line 302>:
+302           0 <129>                    0
+
+174     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (text)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x103308be0, file "Algo_Tele_V1.1.py", line 318>:
+318           0 <129>                    0
+
+190     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (strSetText)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x103308710, file "Algo_Tele_V1.1.py", line 347>:
+347           0 <129>                    0
+
+219     >>    2 LOAD_FAST                0 (.0)
+              4 FOR_ITER                 9 (to 15)
+              6 STORE_FAST               1 (x)
+              8 LOAD_FAST                1 (x)
+             10 LOAD_DEREF               0 (strSetText)
+             12 LOAD_METHOD              0 (upper)
+             14 CALL_METHOD              0
+             16 CONTAINS_OP              0
+             18 YIELD_VALUE
+             20 POP_TOP
+             22 JUMP_ABSOLUTE            2
+             24 LOAD_CONST               0 (None)
+             26 RETURN_VALUE
